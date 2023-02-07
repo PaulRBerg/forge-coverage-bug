@@ -1,0 +1,42 @@
+{
+  "name": "@PaulRBerg/forge-coverage-bug",
+  "description": "",
+  "version": "1.0.0",
+  "author": {
+    "name": "PaulRBerg",
+    "url": "https://github.com/PaulRBerg"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "solhint": "^3.3.7"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "forge",
+    "foundry",
+    "smart-contracts",
+    "solidity",
+    "template"
+  ],
+  "packageManager": "yarn@3.4.1",
+  "private": true,
+  "resolutions": {
+    "solhint/@solidity-parser/parser": "^0.14.5"
+  },
+  "scripts": {
+    "clean": "rimraf cache out",
+    "lint": "yarn lint:sol && yarn prettier:check",
+    "lint:sol": "forge fmt --check && yarn solhint \"{src,test}/**/*.sol\"",
+    "postinstall": "husky install",
+    "prettier:check": "prettier --check \"**/*.{json,md,yml}\"",
+    "prettier:write": "prettier --write \"**/*.{json,md,yml}\""
+  }
+}
